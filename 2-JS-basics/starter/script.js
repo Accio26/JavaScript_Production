@@ -397,6 +397,8 @@ console.log(whatDoYouDo('driver', 'Mark'));
  */
 
 // Initialize new array
+
+/*
 const names = ['John', 'Mark', 'Jane'];
 const years = new Array(1990, 1969, 1948);
 
@@ -424,3 +426,243 @@ console.log(john.indexOf(23));
 
 const isDesigner = john.indexOf('designer') === -1 ? 'John is NOT a designer' : 'John IS a designer';
 console.log(isDesigner);
+
+
+*/
+
+/*
+function tipCalculator(bill) {
+  let percentage;
+  if (bill < 50) {
+    percentage = .2;
+  } else if (bill >= 50 && bill < 200) {
+    percentage = .15;
+  } else {
+    percentage = .1;
+  }
+  return percentage * bill;
+}
+
+let bills = [124, 48, 268];
+let tips = [tipCalculator(bills[0]),
+  tipCalculator(bills[1]),
+  tipCalculator(bills[2])
+];
+
+let finalValues = [bills[0] + tips[0],
+  bills[1] + tips[1],
+  bills[2] + tips[2]
+];
+
+console.log(tips, finalValues);
+
+// console.log(tipCalculator(100));
+
+*/
+
+/***********************
+ * Objects and properties
+ */
+
+/*
+let john = {
+  firstName: 'John',
+  lastName: 'Smith',
+  birthYear: 1990,
+  family: ['Jane', 'Mark', 'Bob', 'Emily'],
+  job: 'teacher',
+  isMarried: false
+};
+console.log(john.firstName);
+console.log(john['lastName']);
+
+john.job = 'designer';
+john['isMarried'] = true;
+console.log(john);
+
+let jane = new Object();
+jane.firstName = 'Jane';
+jane.birthYear = 1969;
+jane['lastName'] = 'Smith';
+console.log(jane);
+
+*/
+
+/***********************
+ * Objects and methods
+ */
+
+
+/*
+let john = {
+  firstName: 'John',
+  lastName: 'Smith',
+  birthYear: 1990,
+  family: ['Jane', 'Mark', 'Bob', 'Emily'],
+  job: 'teacher',
+  isMarried: false,
+  calcAge: function () {
+    this.age = 2018 - this.birthYear;
+  }
+};
+
+// console.log(john.calcAge());
+john.calcAge();
+console.log(john);
+
+
+*/
+
+/*
+let john = {
+  fullName: 'John Smith',
+  mass: 92,
+  height: 1.95,
+  calcBMI: function () {
+    this.bmi = this.mass / (this.height * this.height);
+    return this.bmi;
+  }
+}
+
+let mark = {
+  fullName: 'Mark Miller',
+  mass: 55,
+  height: 1.78,
+  calcBMI: function () {
+    this.bmi = this.mass / (this.height * this.height);
+    return this.bmi;
+  }
+}
+
+if (john.calcBMI() > mark.calcBMI()) {
+  console.log(john.fullName + 'has a higher BMI of ' + john.bmi);
+} else if (mark.bmi > john.bmi) {
+  console.log(mark.fullName + 'has a higher BMI of ' + mark.bmi);
+} else {
+  console.log('THey have tha same BMI');
+}
+
+*/
+
+/***********************
+ * Loops and iteration
+ */
+
+/*
+for (let i = 0; i < 10; i++) {
+  console.log(i);
+}
+
+
+let john = ['John', 'Smith', 1990, 'designer', false];
+for (let i = 0; i < john.length; i++) {
+  console.log(john[i]);
+}
+
+let i = 0;
+while (i < john.length) {
+  console.log(john[i]);
+  i++;
+}
+*/
+
+
+/*
+// continue and break statements
+let john = ['John', 'Smith', 1990, 'designer', false];
+for (let i = 0; i < john.length; i++) {
+  if (typeof john[i] !== 'string') continue;
+  console.log(john[i]);
+}
+
+
+for (let i = 0; i < john.length; i++) {
+  if (typeof john[i] !== 'string') break;
+  console.log(john[i]);
+}
+
+
+// Looping backwards
+for (let i = john.length - 1; i >= 0; i--) {
+  console.log(john[i]);
+}
+*/
+
+let john = {
+  fullName: 'John Smith',
+  bills: [124, 48, 268, 180, 42],
+  calcTips: function () {
+    this.tips = [];
+    this.finalValues = [];
+
+    for (let i = 0; i < this.bills.length; i++) {
+      // Determine percentage based on tipping rules
+      let percentage;
+      let bill = this.bills[i];
+
+      if (this.bills[i] < 50) {
+        percentage = .2;
+      } else if (this.bills[i] >= 50 && this.bills[i] < 200) {
+        percentage = .15;
+      } else {
+        percentage = .1;
+      }
+
+      // Add results to the corresponing arrays
+      this.tips[i] = bill * percentage;
+      this.finalValues[i] = bill + bill * percentage;
+    }
+  }
+}
+
+
+let mark = {
+  fullName: 'Mark Miller',
+  bills: [77, 475, 110, 45],
+  calcTips: function () {
+    this.tips = [];
+    this.finalValues = [];
+
+    for (let i = 0; i < this.bills.length; i++) {
+      // Determine percentage based on tipping rules
+      let percentage;
+      let bill = this.bills[i];
+
+      if (this.bills[i] < 50) {
+        percentage = .2;
+      } else if (this.bills[i] >= 100 && this.bills[i] < 300) {
+        percentage = .1;
+      } else {
+        percentage = .25;
+      }
+
+      // Add results to the corresponing arrays
+      this.tips[i] = bill * percentage;
+      this.finalValues[i] = bill + bill * percentage;
+    }
+  }
+}
+
+function calcAverage(tips) {
+  let sum = 0;
+  for (let i = 0; i < tips.length; i++) {
+    sum = sum + tips[i];
+  }
+
+  return sum / tips.length;
+}
+
+// Do the calculations
+john.calcTips();
+mark.calcTips();
+console.log(john, mark);
+
+john.average = calcAverage(john.tips);
+mark.average = calcAverage(john.tips);
+console.log(john, mark);
+
+if (john.average > mark.average) {
+  console.log(john.fullName + '\'s family pays higher tips, with an average of $' + john.average);
+} else if (mark.average > john.average) {
+  console.log(mark.fullName + '\'s family pays higher tips, with an average of $' + mark.average);
+}
