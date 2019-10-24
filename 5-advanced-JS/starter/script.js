@@ -60,7 +60,6 @@ let jane = Object.create(personProto, {
 });
 */
 
-
 // Primitives vs objects
 
 /*
@@ -99,8 +98,6 @@ change(age, obj);
 console.log(age);
 console.log(obj.city);
 */
-
-
 
 //////////////////////////////////
 // Lecture: Passing functions as arguments
@@ -143,7 +140,6 @@ console.log(fullAges);
 console.log(rates);
 */
 
-
 //////////////////////////////////
 // Lecture: Functions returning functions
 
@@ -177,10 +173,6 @@ designerQuestion('Mike');
 interviewQuestion('teacher')('Mark');
 */
 
-
-
-
-
 //////////////////////////////////
 // Lecture: IIFE
 
@@ -204,8 +196,6 @@ interviewQuestion('teacher')('Mark');
   console.log(score >= 5 - goodLuck);
 })(5);
 */
-
-
 
 //////////////////////////////////
 // Lecture: Closures
@@ -265,11 +255,10 @@ function interviewQuestion(job) {
 interviewQuestion('teacher')('John');
 */
 
-
-
-
 //////////////////////////////////
 // Lecture: Bind, call and apply
+
+/*
 
 let john = {
   name: 'John',
@@ -333,3 +322,141 @@ let fullJapan = arrayCalc(ages, isFullAge.bind(this, 20));
 
 console.log(ages);
 console.log(fullJapan);
+*/
+
+/*
+(function() {
+  function Question(question, answers, correct) {
+    this.question = question;
+    this.answers = answers;
+    this.correct = correct;
+  }
+
+  Question.prototype.displayQuestion = function() {
+    console.log(this.question);
+
+    for (let i = 0; i < this.answers.length; i++) {
+      console.log(i + ': ' + this.answers[i]);
+    }
+  };
+
+  Question.prototype.checkAnswer = function(ans) {
+    if (ans === this.correct) {
+      console.log('Correct answer!');
+    } else {
+      console.log('Wrong answer. Try again:)');
+    }
+  };
+
+  let q1 = new Question(
+    'Is JavaScript the coolest programming language in the world?',
+    ['Yes', 'No'],
+    0
+  );
+
+  let q2 = new Question(
+    "What is the name of thi course's teacher?",
+    ['John', 'Micheal', 'Jonas'],
+    2
+  );
+
+  let q3 = new Question(
+    'What does best describe coding?',
+    ['Boring', 'Hard', 'Fun', 'Tediuos'],
+    2
+  );
+
+  let questions = [q1, q2, q3];
+
+  let n = Math.floor(Math.random() * questions.length);
+
+  questions[n].displayQuestion();
+
+  let answer = parseInt(prompt('Please select the correct answer.'));
+
+  questions[n].checkAnswer(answer);
+})();
+*/
+
+(function() {
+  function Question(question, answers, correct) {
+    this.question = question;
+    this.answers = answers;
+    this.correct = correct;
+  }
+
+  Question.prototype.displayQuestion = function() {
+    console.log(this.question);
+
+    for (let i = 0; i < this.answers.length; i++) {
+      console.log(i + ': ' + this.answers[i]);
+    }
+  };
+
+  Question.prototype.checkAnswer = function(ans, callback) {
+    let sc;
+    if (ans === this.correct) {
+      console.log('Correct answer!');
+      sc = callback(true);
+    } else {
+      console.log('Wrong answer. Try again:)');
+
+      sc = callback(false);
+    }
+
+    this.displayScore(sc);
+  };
+
+  Question.prototype.displayScore = function(score) {
+    console.log('Your current score is: ' + score);
+    console.log('-------------');
+  };
+
+  let q1 = new Question(
+    'Is JavaScript the coolest programming language in the world?',
+    ['Yes', 'No'],
+    0
+  );
+
+  let q2 = new Question(
+    "What is the name of thi course's teacher?",
+    ['John', 'Micheal', 'Jonas'],
+    2
+  );
+
+  let q3 = new Question(
+    'What does best describe coding?',
+    ['Boring', 'Hard', 'Fun', 'Tediuos'],
+    2
+  );
+
+  let questions = [q1, q2, q3];
+
+  function score() {
+    let sc = 0;
+    return function(correct) {
+      if (correct) {
+        sc++;
+      }
+      return sc;
+    };
+  }
+
+  let keepScore = score();
+
+  function nextQuestion() {
+    let n = Math.floor(Math.random() * questions.length);
+
+    questions[n].displayQuestion();
+
+    let answer = prompt('Please select the correct answer.');
+
+    if (answer !== 'exit') {
+      questions[n].checkAnswer(parseInt(answer), keepScore);
+
+      nextQuestion();
+    }
+  }
+
+  nextQuestion();
+})();
