@@ -63,7 +63,6 @@ console.log(firstName + ' ' + lastName);
 
 */
 
-
 /***********************
  * Basic operators
  */
@@ -96,7 +95,6 @@ console.log(typeof 'Mark is older the john');
 let x;
 console.log(typeof x);
 */
-
 
 /***********************
  * Operator precedence
@@ -147,7 +145,6 @@ const markHigherBMI = BMIMark > BMIJohn;
 console.log('Is Mark\'s BMI higher than John\'s?' + markHigherBMI);
 */
 
-
 /***********************
  * If / else statements
  */
@@ -191,9 +188,6 @@ if (BMIMark > BMIJohn) {
 
 */
 
-
-
-
 /***********************
  * Boolean logic
  */
@@ -214,7 +208,6 @@ if (age < 13) {
 }
 
 */
-
 
 /***********************
  * The Ternary Operator and Switch Statements
@@ -276,14 +269,12 @@ switch (true) {
 
 */
 
-
 /***********************
  * Truthy and Falsy values and equality operators
  */
 
 // falsy values: undefined, null, 0 , '', NaN
 // truthy values: NOT falsy values
-
 
 /*
 let height;
@@ -329,8 +320,6 @@ if (scoreJohn > scoreMike && scoreJohn > scoreMary) {
 
 
 */
-
-
 
 /***********************
  * Functions
@@ -492,7 +481,6 @@ console.log(jane);
  * Objects and methods
  */
 
-
 /*
 let john = {
   firstName: 'John',
@@ -566,7 +554,6 @@ while (i < john.length) {
 }
 */
 
-
 /*
 // continue and break statements
 let john = ['John', 'Smith', 1990, 'designer', false];
@@ -591,7 +578,7 @@ for (let i = john.length - 1; i >= 0; i--) {
 let john = {
   fullName: 'John Smith',
   bills: [124, 48, 268, 180, 42],
-  calcTips: function () {
+  calcTips: function() {
     this.tips = [];
     this.finalValues = [];
 
@@ -601,11 +588,11 @@ let john = {
       let bill = this.bills[i];
 
       if (this.bills[i] < 50) {
-        percentage = .2;
+        percentage = 0.2;
       } else if (this.bills[i] >= 50 && this.bills[i] < 200) {
-        percentage = .15;
+        percentage = 0.15;
       } else {
-        percentage = .1;
+        percentage = 0.1;
       }
 
       // Add results to the corresponing arrays
@@ -613,13 +600,12 @@ let john = {
       this.finalValues[i] = bill + bill * percentage;
     }
   }
-}
-
+};
 
 let mark = {
   fullName: 'Mark Miller',
   bills: [77, 475, 110, 45],
-  calcTips: function () {
+  calcTips: function() {
     this.tips = [];
     this.finalValues = [];
 
@@ -629,11 +615,11 @@ let mark = {
       let bill = this.bills[i];
 
       if (this.bills[i] < 50) {
-        percentage = .2;
+        percentage = 0.2;
       } else if (this.bills[i] >= 100 && this.bills[i] < 300) {
-        percentage = .1;
+        percentage = 0.1;
       } else {
-        percentage = .25;
+        percentage = 0.25;
       }
 
       // Add results to the corresponing arrays
@@ -641,7 +627,7 @@ let mark = {
       this.finalValues[i] = bill + bill * percentage;
     }
   }
-}
+};
 
 function calcAverage(tips) {
   let sum = 0;
@@ -662,7 +648,15 @@ mark.average = calcAverage(john.tips);
 console.log(john, mark);
 
 if (john.average > mark.average) {
-  console.log(john.fullName + '\'s family pays higher tips, with an average of $' + john.average);
+  console.log(
+    john.fullName +
+      "'s family pays higher tips, with an average of $" +
+      john.average
+  );
 } else if (mark.average > john.average) {
-  console.log(mark.fullName + '\'s family pays higher tips, with an average of $' + mark.average);
+  console.log(
+    mark.fullName +
+      "'s family pays higher tips, with an average of $" +
+      mark.average
+  );
 }
