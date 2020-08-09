@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-=======
-import str from './models/Search';
+import num from './test';
 
-// import { add as a, multiply as m, ID } from './views/searchView';
-
-import * as searchView from './views/searchView';
-
-console.log(`Using imported function! ${searchView.add(searchView.ID, 2)} and ${searchViews.multiply(3, 5).$(str)}`);
->>>>>>> forkify
+console.log(`I imported ${num} from another module!`);
