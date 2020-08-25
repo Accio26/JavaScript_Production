@@ -83,11 +83,26 @@ console.log(typeof x);
 /**---------------------------------
  * Operator precedence
  */
-
-
 var now = 2018;
 var yearJohn = 1989;
 var fullAge = 18;
 
 var isFullAge = now - yearJohn >= fullAge;
 console.log(isFullAge);
+
+// Grouping
+var ageJohn = now - yearJohn;
+var ageMark = 35;
+var average = (ageJohn + ageMark) / 2;
+console.log(average); // 32
+
+// Multiple assignments
+var x, y;
+x = y = (3 + 5) * 4 - 6;
+console.log(x, y); // 26 26
+
+// More operators
+x = x * 2;
+// simple
+x *= 2;
+console.log(x);
