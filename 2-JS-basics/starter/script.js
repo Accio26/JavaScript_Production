@@ -105,4 +105,6 @@ console.log(x, y); // 26 26
 x = x * 2;
 // simple
 x *= 2;
-console.log(x);
+console.log(x); // 52
+x += 10;
+console.log(x); // 62
