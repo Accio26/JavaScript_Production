@@ -137,7 +137,8 @@ console.log(BMIMark, BMIJohn);
 */
 
 // 文字列は飛ばした
-const age = 19;
+/*
+//const age = 19;
 const isOldEnough = age >= 18;
 
 if (isOldEnough) {
@@ -146,15 +147,8 @@ if (isOldEnough) {
   const yearsLeft = 18 - age;
   console.log(`Sarah is too young. Wait another ${yearsLeft} years`);
 }
+*/
 
-
-const birthYear = 1991;
-if (birthYear <= 2000) {
-  let century = 20;
-} else {
-  let century = 21;
-}
-
-
-// MEMO
-// 一旦飛ばしてsection05に
+// 途中いくつか飛ばしている
+const age = 23;
+age >= 18 ? console.log('I like to drink wine') : console.log('I like to drink water');
