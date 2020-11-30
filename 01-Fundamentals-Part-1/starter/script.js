@@ -77,6 +77,7 @@ job = 'teacher';
 const language = 'Japanese';
 */
 
+/*
 const now = 2037;
 
 const ageJonas = now - 1991;
@@ -113,3 +114,47 @@ population++;
 console.log(population);
 console.log(6000000 < population);
 console.log(33000000 > population);
+*/
+
+
+// const now = 2037;
+// const ageJonas = now - 1991;
+// const ageSarah = now - 2018;
+
+// console.log(now - 1991  > now - 2018);
+
+
+/*
+const massMark = 78;
+const heightMark = 1.69;
+const massJohn = 92;
+const heightJohn = 1.95;
+
+
+const BMIMark = massMark / heightMark ** 2;
+const BMIJohn = massJohn / (heightJohn * heightJohn);
+console.log(BMIMark, BMIJohn);
+*/
+
+// 文字列は飛ばした
+const age = 19;
+const isOldEnough = age >= 18;
+
+if (isOldEnough) {
+  console.log('Sarah can start driving license 🚗'); // true
+} else {
+  const yearsLeft = 18 - age;
+  console.log(`Sarah is too young. Wait another ${yearsLeft} years`);
+}
+
+
+const birthYear = 1991;
+if (birthYear <= 2000) {
+  let century = 20;
+} else {
+  let century = 21;
+}
+
+
+// MEMO
+// 一旦飛ばしてsection05に
