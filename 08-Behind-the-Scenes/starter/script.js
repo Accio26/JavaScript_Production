@@ -15,7 +15,7 @@ function calcAge(birthYear) {
       function add(a, b) {
         return a + b;
       }
-      output = 'new output!';
+      // output = 'new output!';
     }
     console.log(output);
   }
